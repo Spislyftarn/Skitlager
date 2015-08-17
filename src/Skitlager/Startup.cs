@@ -30,6 +30,7 @@ namespace Skitlager
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             // Configure the HTTP request pipeline.
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             // Add MVC to the request pipeline.
