@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Skitlager</title>
+</head>
+<body>
+    <div>
+        <h2>WebAPI ASP.NET 5 Test</h2>
+        <div id="GetStringId">novalue</div>
+    </div>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        var uri = 'api/test';
+        $(document).ready(function () {
+            $('#GetStringId').text("document ready");
+            $.get(uri)
+                .done(function (data) {
+                    $('#GetStringId').text('api/test data: ' + data);
+                });
+        });
+    </script>
+</body>
+
+</html>
