@@ -32,12 +32,10 @@ namespace Test.Controllers
         }
 
         [HttpPost("Add")]
-        public void Add([FromBody]string valueToAddStr)
-        {
-            int value = 0;
-            int.TryParse(valueToAddStr, out value);
+        public void Add(int valueToAdd)
+        {   
             TestContext testContext = new TestContext();
-            testContext.Additions.Add(new Addition { Id = Guid.NewGuid(), Value = value });
+            testContext.Additions.Add(new Addition { Id = Guid.NewGuid(), Value = valueToAdd });
             testContext.SaveChanges();
         }
     }
