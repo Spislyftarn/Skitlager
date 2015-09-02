@@ -6,7 +6,10 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Routing;
+using Microsoft.Data.Entity;
 using Microsoft.Framework.DependencyInjection;
+
+using Test.Context;
 
 namespace Skitlager
 {
@@ -21,6 +24,8 @@ namespace Skitlager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddEntityFramework().AddSqlite();
+
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
             // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
             // services.AddWebApiConventions();
@@ -32,11 +37,20 @@ namespace Skitlager
             // Configure the HTTP request pipeline.
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            
 
             // Add MVC to the request pipeline.
             app.UseMvc();
             // Add the following route for porting Web API 2 controllers.
             // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
+
+            CreateDatabases();
+        }
+
+        private void CreateDatabases()
+        {
+            TestContext testContext = new TestContext();
+            testContext.Database.EnsureCreated();
         }
     }
 }
