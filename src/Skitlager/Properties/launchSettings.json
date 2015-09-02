@@ -3,7 +3,6 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/values",
       "environmentVariables": {
         "ASPNET_ENV": "Development"
       }
@@ -12,6 +11,6 @@
       "commandName": "kestrel",
       "launchBrowser": true,
       "launchUrl": "http://localhost:5004"
-    },
+    }
   }
 }
