@@ -21,12 +21,24 @@ namespace Test.Controllers
         [HttpGet]
         public string Get()
         {
-            TestContext testContext = new TestContext();
-            testContext.Additions.Add(new Addition { Id = Guid.NewGuid(), Value = 5 });
-            testContext.SaveChanges();
-
             string toReturn = "Skeeeetlager: " + _appEnvironment.ApplicationBasePath;
             return toReturn;
+        }
+
+        [HttpGet("Sum")]
+        public int Sum()
+        {
+            return -1;
+        }
+
+        [HttpPost("Add")]
+        public void Add([FromBody]string valueToAddStr)
+        {
+            int value = 0;
+            int.TryParse(valueToAddStr, out value);
+            TestContext testContext = new TestContext();
+            testContext.Additions.Add(new Addition { Id = Guid.NewGuid(), Value = value });
+            testContext.SaveChanges();
         }
     }
 

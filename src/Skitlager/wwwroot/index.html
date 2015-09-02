@@ -21,7 +21,27 @@
                     $('#GetStringId').text('api/test data: ' + data);
                 });
         });
+
+        //var Add = function () {
+            //var uri = 'api/test/add/' + ('#valueToAdd').text;
+
+            //$('#AddResult').text("Adding value...!")
+
+            //$.post(uri)
+                //.done(function () {
+                  //  $('#AddResult').text("Done!");
+                //});
+        //}
     </script>
+
+    <div>
+        <form method="post" action="api/test/add">
+            <input id="valueToAdd" />
+            <input type="submit" value="AddFormPost" />
+        </form>
+        Sum: <div id="Sum"></div>
+    </div>
+
 </body>
 
 </html>
