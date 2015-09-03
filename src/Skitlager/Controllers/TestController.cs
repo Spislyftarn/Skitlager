@@ -3,9 +3,9 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.Framework.Runtime;
 using System.Collections.Generic;
 using System.Linq;
-using Test.Context;
+using Skitlager.Context;
 
-namespace Test.Controllers
+namespace Skitlager.Controllers
 {
 
     [Route("api/[controller]")]
