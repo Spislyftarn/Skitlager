@@ -1,8 +1,9 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Data.Entity;
 using System.Reflection;
 
-namespace Test.Context
+namespace Skitlager.Context
 {
     public class Addition
     {
@@ -16,7 +17,8 @@ namespace Test.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            builder.UseSqlite("Data source=c:\\temp\\dbtest.sqlite");
+            string dbPath = Path.Combine(ApplicationSettings.ApplicationBasePath, "dbtest.sqlite");
+            builder.UseSqlite("Data source=" + dbPath);
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
